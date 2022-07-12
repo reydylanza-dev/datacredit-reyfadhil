@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <title>Aplikasi Data Credit</title>
+    </head>
+    <body
+        class="
+            flex flex-col
+            justify-between
+            item-center
+            p-8
+            min-h-screen
+            bg-gradient-to-r
+            from-green-400
+            to-blue-500
+            text-gray-800
+            md:flex-row
+        "
+    >
+        <main class="bg-white p-16 rounded-lg">
+            <h1 class="text-3xl font-bold mb-8">
+                Fitur Data Credit:
+            </h1>
+
+            <form
+                action="{{ url_for('predict') }}"
+                method="post"
+                class="flex flex-col"
+            >
+                <label for="age" class="mb-2">Age</label>
+                <input
+                    type="text"
+                    name="age"
+                    placeholder="age"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="job" class="mb-2">Job</label>
+                <input
+                    type="text"
+                    name="job"
+                    placeholder="job"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="marital" class="mb-2">Marital</label>
+                <input
+                    type="text"
+                    name="marital"
+                    placeholder="marital"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="education" class="mb-2">Education</label>
+                <input
+                    type="text"
+                    name="education"
+                    placeholder="education"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="default" class="mb-2">Default</label>
+                <input
+                    type="text"
+                    name="default"
+                    placeholder="default"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="housing" class="mb-2">Housing</label>
+                <input
+                    type="text"
+                    name="housing"
+                    placeholder="housing"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="loan" class="mb-2">Loan</label>
+                <input
+                    type="text"
+                    name="loan"
+                    placeholder="loan"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="contact" class="mb-2">Contact</label>
+                <input
+                    type="text"
+                    name="contact"
+                    placeholder="contact"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="month" class="mb-2">Month</label>
+                <input
+                    type="text"
+                    name="month"
+                    placeholder="month"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="day_of_week" class="mb-2">Day Of Week</label>
+                <input
+                    type="text"
+                    name="day_of_week"
+                    placeholder="day_of_week"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="duration" class="mb-2">Duration</label>
+                <input
+                    type="text"
+                    name="duration"
+                    placeholder="duration"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="campaign" class="mb-2">Campaign</label>
+                <input
+                    type="text"
+                    name="campaign"
+                    placeholder="campaign"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="pdays" class="mb-2">PDays</label>
+                <input
+                    type="text"
+                    name="pdays"
+                    placeholder="pdays"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="previous" class="mb-2">Previous</label>
+                <input
+                    type="text"
+                    name="previous"
+                    placeholder="previous"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <label for="poutcome" class="mb-2">Poutcome</label>
+                <input
+                    type="text"
+                    name="poutcome"
+                    placeholder="poutcome"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <button
+                    type="submit"
+                    class="
+                        flex
+                        justify-center
+                        align-center
+                        mt-8
+                        p-4
+                        bg-gradient-to-r
+                        from-green-400
+                        to-blue-500
+                        text-white
+                        rounded-md
+                    "
+                >
+                    PREDIKSI SEKARANG
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-arrow-right ml-4"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+        </main>
+        <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
+            <div class="bg-white p-16 rounded-lg">
+                <h1 class="text-2xl mb-8">
+                    Berita tersebut diprediksikan
+                </h1>
+                <h2 class="text-5xl font-bold">{{ prediction }}</h2>
+                {% if (prediction) != '' %}
+                <div class="mt-8">
+                    <p>Age: {{ age }}</p>
+                    <p>Job: {{ job }}</p>
+                    <p>Marital: {{ marital }}</p>
+                    <p>Education: {{ education }}</p>
+                    <p>Default: {{ default }}</p>
+                    <p>Housing: {{ housing }}</p>
+                    <p>Loan: {{ loan }}</p>
+                    <p>Contact: {{ contact }}</p>
+                    <p>Month: {{ month }}</p>
+                    <p>Day_Of_Week: {{ day_of_week }}</p>
+                    <p>Duration: {{ duration }}</p>
+                    <p>Campaign: {{ campaign }}</p>
+                    <p>Pdays: {{ pdays }}</p>
+                    <p>previous: {{ previous }}</p>
+                    <p>Poutcome: {{ poutcome }}</p>
+                </div>
+                {% endif %}
+            </div>
+            <div class="flex justify-around bg-white p-16 rounded-lg mt-8">
+
+                <img
+                    class="h-24 md:h-28"
+                    src="https://drive.google.com/thumbnail?id=1U664Ihl02fVgBVTvZ1-5kxotHDs-Uomq"
+                    alt="logo-it-itts"
+
+                />
+            </div>
+        </section>
+    </body>
+</html>
